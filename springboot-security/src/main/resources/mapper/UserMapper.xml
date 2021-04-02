@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.site.dao.UserDao">
+
+    <!-- 批量删除用户 -->
+    <update id="deletedUsers" parameterType="com.site.pojo.SysUser">
+        update sys_user
+        <set>
+            deleted=0,
+            <if test="sysUser.updateId != null and sysUser.updateId != ''">
+                update_id=#{sysUser.updateId},
+            </if>
+            <if test="sysUser.updateTime != null">
+                update_time=#{sysUser.updateTime},
+            </if>
+        </set>
+        where id in
+        <foreach collection="list" separator="," open="(" close=")" item="item">
+            #{item}
+        </foreach>
+    </update>
+</mapper>

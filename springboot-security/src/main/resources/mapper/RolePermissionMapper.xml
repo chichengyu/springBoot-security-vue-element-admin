@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.site.dao.RolePermissionDao">
+
+    <!-- 通过角色id查询拥有的权限id -->
+    <select id="getPermissionIdsByRoleId" resultType="java.lang.String" parameterType="string">
+        select permission_id
+        from sys_role_permission
+        where role_id=#{roleId}
+    </select>
+
+    <!-- 根据角色id删除多条角色 id 和菜单权限 id 关联数据 -->
+    <delete id="removeByRoleId" parameterType="string">
+        delete from sys_role_permission where role_id=#{roleId}
+    </delete>
+
+    <!-- 通过权限id删除相关角色和该菜单权限的关联表信息 -->
+    <delete id="removeByPermissionId" parameterType="string">
+        delete
+        from sys_role_permission
+        where permission_id=#{permissionId}
+    </delete>
+</mapper>

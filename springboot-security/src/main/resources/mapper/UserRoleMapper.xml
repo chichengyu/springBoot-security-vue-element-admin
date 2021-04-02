@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.site.dao.UserRoleDao">
+
+    <!-- 通过用户id获取该用户所拥有的角色名称（用户登录时查询拥有角色） -->
+    <select id="getRoleIdsByUserId" resultType="java.lang.String" parameterType="string">
+        select sr.id
+        from sys_user_role sur
+        left join sys_role sr on sr.id=sur.role_id
+        where sur.user_id=#{userId} and sr.name <![CDATA[<>]]> ''
+    </select>
+
+    <!-- 根据用户id 删除用户拥有的角色数据 -->
+    <delete id="removeRoleIdsByUserId" parameterType="string">
+        delete
+        from sys_user_role
+        where user_id=#{userId}
+    </delete>
+</mapper>

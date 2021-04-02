@@ -1,0 +1,107 @@
+{
+    "code": 1,
+    "data": {
+        "id": "1237361915165020161",
+        "username": "admin",
+        "phone": "13888888888",
+        "nickName": "小x",
+        "realName": "小池",
+        "sex": 1,
+        "deptId": "1237322421447561216",
+        "deptName": "测试添加部门",
+        "status": 1,
+        "email": "875267425@qq.com",
+        "menus": [
+            {
+                "id": "1236916745927790564",
+                "title": "组织管理",
+                "icon": "el-icon-star-off",
+                "path": "/org",
+                "name": "org",
+                "children": [
+                    {
+                        "id": "1236916745927790578",
+                        "title": "角色管理",
+                        "icon": "el-icon-s-promotion",
+                        "path": "/roles",
+                        "name": "roles",
+                        "children": [],
+                    },
+                    {
+                        "id": "1236916745927790560",
+                        "title": "菜单权限管理",
+                        "icon": "el-icon-s-tools",
+                        "path": "/menus",
+                        "name": "menus",
+                        "children": [],
+                    },
+                    {
+                        "id": "1236916745927790575",
+                        "title": "用户管理",
+                        "icon": "el-icon-s-custom",
+                        "path": "/users",
+                        "name": "user",
+                        "children": [],
+                    },
+                    {
+                        "id": "1236916745927790573",
+                        "title": "部门管理",
+                        "icon": "el-icon-s-tools",
+                        "path": "/depts",
+                        "name": "depts",
+                        "children": [],
+                    }
+                ],
+                "spread": true,
+                "checked": false
+            },
+            {
+                "id": "1236916745927790569",
+                "title": "系统管理",
+                "icon": "el-icon-s-tools",
+                "path": "/sys",
+                "name": "auth",
+                "children": [
+                    {
+                        "id": "1236916745927790589",
+                        "title": "日志管理",
+                        "icon": "el-icon-s-flag",
+                        "path": "/logs",
+                        "name": "logs",
+                        "children": [],
+                    },
+                    {
+                        "id": "1236916745927790558",
+                        "title": "接口管理",
+                        "icon": "el-icon-s-tools",
+                        "path": "/swagger",
+                        "name": "swagger",
+                        "children": [],
+                    },
+                    {
+                        "id": "1236916745927790571",
+                        "title": "SQL监控",
+                        "icon": "el-icon-s-tools",
+                        "path": "/sql",
+                        "name": "sql",
+                        "children": [],
+                    }
+                ]
+            },
+            {
+                "id": "1236916745927790569",
+                "title": "账号管理",
+                "icon": "el-icon-s-data",
+                "path": "/user",
+                "name": "user",
+                "children": []
+            }
+        ],
+        "permissions": [
+            "sys:log:delete",
+            "sys:user:add",
+            "sys:role:update",
+            "sys:dept:list"
+        ]
+    }
+}

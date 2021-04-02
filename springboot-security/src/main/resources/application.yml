@@ -1,0 +1,68 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+spring:
+  profiles:
+    active: dev
+  cache:
+    type: redis #使用redis做缓存
+  redis:
+    expire: 3600 # 3600秒，redisConfig中配置
+    database: 0 #Redis数据库索引（默认为0）
+    host: 127.0.0.1
+    port: 6379
+    password: redis123
+    lettuce:
+      pool:
+        max-active: 8 #连接池最大连接数（使用负值表示没有限制）
+        max-wait: -1ms # 连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-idle: 8 # 连接池中的最大空闲连接
+        min-idle: 1 # 连接池中的最小空闲连接
+    timeout: PT10S # 连接超时时间（毫秒）
+
+# mybatis配置
+mybatis:
+  type-aliases-package: com.site.pojo
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: true #使全局的映射器启用或禁用缓存。
+    lazy-loading-enabled: true #全局启用或禁用延迟加载。当禁用时，所有关联对象都会即时加载。
+    aggressive-lazy-loading: true #当启用时，有延迟加载属性的对象在被调用时将会完全加载任意属性。否则，每种属性将会按需要加载。
+    jdbc-type-for-null: null #设置但JDBC类型为空时,某些驱动程序 要指定值,default:OTHER，插入空值时不需要指定类型
+
+# pagehelper配置
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: pacount=countSql
+  returnPageInfo: check
+
+# swagger配置
+swagger:
+  basePackage: com.site.controller
+  enable: true
+  title: api文档
+  description: 文档描述
+  version: 1.0
+  address: http://baidu.com # 文档描述的网站域名
+  name: 小三 #联系人
+  email: 875267425@163.com # 联系人邮箱
+
+# 跨域配置
+cors:
+  origin: "*" # 允许所有访问
+
+# jwt 配置
+jwt:
+  issuer: yingxue.com # 发行者
+  secret: 78944878877848fg # 密钥
+  expire: PT2H # 过期时间2小时
+
+# security开放路由，如需添加用,逗号分隔
+security:
+  loginUrl: /api/login # 登录地址
+  logoutUrl: /api/logout # 登出地址
+  openUrl: /api/login,/api/captcha # 如需添加用,逗号分隔

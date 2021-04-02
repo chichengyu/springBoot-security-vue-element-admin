@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.site.dao.PermissionDao">
+
+
+    <select id="getPermissionByUserId" parameterType="string" resultType="SysPermission">
+        select *
+        from sys_permission sp
+        left join sys_role_permission srp on sp.id = srp.permission_id
+        left join sys_user_role sur on sur.role_id = srp.role_id
+        where sur.user_id=#{userId}
+        order by sp.order_num desc
+    </select>
+
+    <!-- 通过 id 查询是否有子级 -->
+    <select id="selectChild" resultType="int" parameterType="string">
+    select count(1)
+    from sys_permission
+    where pid=#{id} and deleted=1
+  </select>
+</mapper>
