@@ -4,7 +4,7 @@
 
 ### 后端：springboot-security
 使用 `springBoot2.2.6 + security + redis + mysql` 的权限管理系统，账户：` admin `，密码：` 123456 `，如果使用[shiro](https://github.com/chichengyu/springBoot-shiro-vue-element-admin)  
-  - security默认验证方式，请看[分支default-AuthenticationToken](https://github.com/chichengyu/springBoot-security-vue-element-admin/tree/default-AuthenticationToken)  
+  - security默认验证方式，请看[分支default-AuthenticationToken](https://gitee.com/chichengyu/springBoot-security-vue-element-admin/tree/default-AuthenticationToken)  
   - security多方式登录，详情请看[JwtAuthenticationProvider.java](https://github.com/chichengyu/springBoot-security-vue-element-admin/blob/master/springboot-security/src/main/java/com/site/security/provider/JwtAuthenticationProvider.java)中注释，另外在登录的时候，可以约定账号`username|type`这样便于创建不同的身份令牌
 
 ### 前端：vue-element-admin
