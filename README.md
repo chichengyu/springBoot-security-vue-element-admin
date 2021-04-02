@@ -1,6 +1,6 @@
 # springBoot-security-vue-element-admin
 
-[码云](https://github.com/chichengyu/springBoot-security-vue-element-admin)
+[码云](https://gitee.com/chichengyu/springBoot-security-vue-element-admin)
 
 ### 后端：springboot-security
 使用 `springBoot2.2.6 + security + redis + mysql` 的权限管理系统，账户：` admin `，密码：` 123456 `，如果使用[shiro](https://github.com/chichengyu/springBoot-shiro-vue-element-admin)  
